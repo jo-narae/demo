@@ -4,10 +4,14 @@ import com.example.demo.domain.Feed;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+import java.util.List;
+
 @Repository
 public interface FeedRepository extends JpaRepository<Feed, Long> {
 
     // 피드 생성 일자가 특정 기간안에 있는 경우의 쿼리 메소드
+    List<Feed> findByCreateDateBetween(Date startDate, Date endDate);
 
     // 피드 생성 일자를 최신순으로 조회하는 쿼리 메소드
 
